@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Order>
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1>Orders</h1>
+<ul>
+
+    @foreach (var item in Model)
+
+    {
+        <li style="float:left;list-style:none;margin-left:40px;">
+            <form asp-action="Orders">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="~/images/lastik.jpg" height="200" width="25" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.ProductDesc</p>
+                        <p>Order Count:@item.ProductCount</p>
+                        <p>Total Price:@item.ProductPrice$</p>
+                        <button type="submit" class="btn-bottom" asp-route-oid="@item.OrderId">Finish</button>
+                    </div>
+                </div>
+            </form>
+        </li>
+    }
+    <img />
+</ul>
+
+

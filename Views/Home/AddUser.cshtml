@@ -1,0 +1,58 @@
+﻿@model b2b.ViewModels.UserCompany
+
+@{
+    ViewData["Title"] = "AddUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("~/Views/Shared/_Admin.cshtml");
+<form asp-action="AddUser">
+
+            <div >
+                <div>
+                    <br />
+                    <br />
+                    <label style="margin-left:-760px;">Company:</label>
+                    <select class="custom-select d-block w-100"    asp-for="user.CompanyId" >
+
+                        @foreach (var item in Model.companies)
+                        {
+                            <option value="@item.CompanyId">@item.CompanyName</option>
+
+                        }
+
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a valid country.
+                    </div>
+                </div>
+            </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Username:</label>
+                <input type="text" class="form-control" asp-for="user.UserName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid first name is required.
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Password:</label>
+                <input type="password" class="form-control" asp-for="user.password"  required>
+                <div class="invalid-feedback">
+                    Valid password is required.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <button type="submit" class="btn-bottom">Confirm</button>
+            </div>
+        </div>
+
+</form>
+

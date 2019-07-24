@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Company>
+@{
+    ViewData["Title"] = "UpdateParner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_Admin");
+@foreach(var item in Model)
+{<ul style="margin-left=-760px;">
+    <form method="post">
+        <li style="float:left;list-style:none;margin-left:25px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/temsa_logo.jpg" height="200" width="25" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.CompanyName</h5>
+                    <p class="card-text">Company Name: <input type="text" value="@item.CompanyName" name="userName" /></p>
+                    <p class="card-text">Company Phone: <input type="text" value="@item.CompanyTel" name="userPassword" /></p>
+                    <button type="submit" class="btn-bottom" asp-route-cid="@item.CompanyId">Confirm</button>
+                </div>
+            </div>
+        </li>
+
+    </form>
+</ul>
+}

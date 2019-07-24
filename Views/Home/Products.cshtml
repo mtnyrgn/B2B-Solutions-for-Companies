@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<ul>
+    
+    @foreach (var item in Model)
+
+    {
+    <li style="float:left;list-style:none;margin-left:40px;">
+        <form asp-action="Products">
+            <div class="card" style="width: 18rem;">
+                <br />
+                <img class="card-img-top" src="~/images/temsa_logo.png" height="200" width="25" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text">@item.ProductDesc</p>
+                    <p>Stok:@item.ProductCount</p>
+                    <p>Product Price:@item.ProductPrice$</p>
+                    <p>
+                        Count:
+                        <select name="count">
+                            @for (var i = 0; i < 100; i ++)
+                            {
+                                <option id="@item.ProductCount" value="@i">@i</option>
+                            }
+
+                        </select>
+                    </p>
+                    <button type="submit" class="btn-bottom" asp-route-pid="@item.ProductId">Confirm</button>
+                </div>
+            </div>
+        </form>
+    </li>
+            }
+            <img />
+    </ul>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        }
+    </script>
+}

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<User>
+@{
+    ViewData["Title"] = "DeleteUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_Admin");
+<form method="post"  >
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <th scope="row">@item.UserId</th>
+                <td>@item.CompanyId</td>
+                <td>@item.UserName</td>
+                @if (!item.UserRole)
+                {
+                    <td>Admin</td>
+                }
+                @if (item.UserRole)
+                {
+                    <td>User</td>
+                }
+                <td><button type="submit" asp-route-id="@item.UserId">Sil</button></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
+    

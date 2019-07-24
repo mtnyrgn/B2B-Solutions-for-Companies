@@ -1,0 +1,35 @@
+﻿@model b2b.ViewModels.CompanyUsers 
+@{
+    ViewData["Title"] = "UpdateUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_Admin");
+
+@foreach (var item in Model.Users)
+
+{<ul style="margin-left=-760px;">
+    <form method="post">
+
+        <li style="float:left;list-style:none;margin-left:25px;">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/temsa_logo.jpg" height="200" width="25" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Company.CompanyName</h5>
+                    <p class="card-text">Username:<br /><input type="te" value="@item.UserName" name="userName" /></p>
+                    <p class="card-text">Password:<br /><input type="password" value="@item.password" name="userPassword" /></p>
+                    <button type="submit" class="btn-bottom" asp-route-uid="@item.UserId">Confirm</button>
+                    @*@if (item.UserRole == false)
+                    {
+                        <button type="submit" class="btn-bottom" asp-route-nuid="@item.UserId">Decline</button>
+                    }*@
+                </div>
+            </div>
+        </li>
+
+    </form>
+</ul>
+}
+
+
+

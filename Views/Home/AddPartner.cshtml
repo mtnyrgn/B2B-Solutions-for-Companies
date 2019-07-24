@@ -1,0 +1,40 @@
+﻿@model Company
+@{
+    ViewData["Title"] = "AddPartner";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("_Admin");
+
+
+<form asp-action="AddPartner" method="post">
+    <div class="col-md-6 order-md-3">
+        <div class="row">
+
+            <div style="margin-left:-750px;">
+                <br />
+                <br />
+                <label>Company Name:</label>
+                <input type="text" class="form-control" asp-for="CompanyName" placeholder="" value="" required>
+                <div class="invalid-feedback">
+                    Valid first name is required.
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label>Company Phone:</label>
+                <input type="text" class="form-control" asp-for="CompanyTel" value="" required>
+                <div class="invalid-feedback">
+                    Valid password is required.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <button type="submit" class="btn-bottom">Confirm</button>
+            </div>
+        </div>
+    </div>     
+</form>
